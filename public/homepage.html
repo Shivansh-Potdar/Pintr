@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Pintr
+        </title>
+        <!-- Firebase SDK -->
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+      
+        <!-- Firebase UI -->
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/firebaseui/dist/firebaseui.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+        
+        <!--  Firebase Storage-->
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+        <script src="homepage.js"></script>
+        <link href="styles.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+        <center><h1>Pintr</h1></center>
+        <button id="signoutBtn" onclick="SignOut()">Sign Out</button>
+        <div id="main-cont">
+            <br>
+            <input type="file" id="fileInput" multiple>
+
+            <script>
+            $(document).ready(function() {
+                firebase.auth().onAuthStateChanged(function(user) {
+                    if (user) {
+                        var email = user.email;
+                        $('#fileInput').on('change', function(e) {
+                            handleFileUpload(e, email);
+                        });
+                    }
+                });
+            });
+            </script>
+
+            <div class="card-columns border-zero" id="photos">
+                <div class="card border-zero" >
+                </div>
+            </div>
+        </div>
+        <div id="photoModal" class="modal">
+            <span class="close">&times;</span>
+            <div class="modal-content">
+                <img id="modalImage" src="" alt="Expanded Photo" />
+            </div>
+        </div>
+    </body>
+</html>

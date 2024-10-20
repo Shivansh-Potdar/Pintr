@@ -1,0 +1,103 @@
+#main-cont {
+    background-color: whitesmoke;
+}
+html {
+    background-color: whitesmoke;
+}
+#upload {
+    border-radius: 15px;
+    padding: 25px;
+    background-color: whitesmoke;
+
+    width: 100%;
+    height: 75%;
+
+    align-items: center;
+    text-align: center;
+}
+
+img {
+    border-radius: 15px;
+
+    border-radius: 15px;
+    padding: 5px;
+    background-color: whitesmoke;
+}
+
+.card, .card-columns{
+    border: none;
+    background-color: whitesmoke;
+}
+
+@media (max-width: 575px){ 
+    .card-columns {
+        column-count: 1; }
+}
+@media (min-width: 576px){
+    .card-columns {
+        column-count: 2; }
+}
+@media (min-width: 768px){
+    .card-columns {
+        column-count: 3; }
+}
+@media (min-width: 992px){
+    .card-columns {
+        column-count: 4; }
+}
+@media (min-width: 1200px){
+    .card-columns {
+        column-count: 4; }
+}
+
+
+
+/* Modal styles */
+/* Modal container */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.8); 
+    overflow: auto; 
+}
+  
+  /* Modal content */
+.modal-content {
+    position: relative;
+    margin: 5% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    background-color: white;
+    border-radius: 10px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+  
+.modal-content img {
+    max-width: 100%; 
+    height: auto;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}
+  
+  /* Close button on hover */
+.close:hover,
+.close:focus {
+    color: #aaa;
+    text-decoration: none;
+    cursor: pointer;
+}
